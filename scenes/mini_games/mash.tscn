@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://boy5w3ln37hkl"]
+
+[ext_resource type="PackedScene" uid="uid://dhmaolqqgtsg0" path="res://scenes/mini_games/mini_game.tscn" id="1_4bh6r"]
+[ext_resource type="Script" path="res://scenes/mini_games/mash.gd" id="2_08g3b"]
+
+[node name="Mash" instance=ExtResource("1_4bh6r")]
+script = ExtResource("2_08g3b")

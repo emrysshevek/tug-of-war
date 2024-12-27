@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofceuklmlhnb"]
+
+[ext_resource type="PackedScene" uid="uid://dhmaolqqgtsg0" path="res://scenes/mini_games/mini_game.tscn" id="1_86s1f"]
+[ext_resource type="Script" path="res://scenes/mini_games/hold.gd" id="2_64ywm"]
+
+[node name="Hold" instance=ExtResource("1_86s1f")]
+script = ExtResource("2_64ywm")
