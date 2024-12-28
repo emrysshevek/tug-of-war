@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dscmpbn1tyfhw"]
+
+[ext_resource type="PackedScene" uid="uid://dhmaolqqgtsg0" path="res://scenes/mini_games/mini_game.tscn" id="1_uxoa8"]
+[ext_resource type="Script" path="res://scenes/mini_games/dodge.gd" id="2_w3he2"]
+[ext_resource type="PackedScene" uid="uid://bqppeap5v5auv" path="res://components/shooter.tscn" id="3_gxec5"]
+[ext_resource type="PackedScene" uid="uid://dh3bwegkevylm" path="res://components/projectile.tscn" id="4_a1qmb"]
+
+[node name="Dodge" instance=ExtResource("1_uxoa8")]
+script = ExtResource("2_w3he2")
+
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+position = Vector2(2, -47)
+
+[node name="Shooter" parent="." index="1" instance=ExtResource("3_gxec5")]
+position = Vector2(5, -481)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(0, 1)
+min_delay = 0.5
+max_delay = 1.0

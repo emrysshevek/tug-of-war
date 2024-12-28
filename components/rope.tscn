@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://lw2phti7jvw"]
+[gd_scene load_steps=4 format=3 uid="uid://lw2phti7jvw"]
 
 [ext_resource type="Texture2D" uid="uid://6k4fxj3fhh64" path="res://assets/rope.png" id="1_2umhq"]
 [ext_resource type="Script" path="res://components/rope.gd" id="2_apfnn"]
+[ext_resource type="Texture2D" uid="uid://b6qjm88a3fod2" path="res://assets/heart.png" id="3_7n0t7"]
 
-[node name="Rope" type="TextureRect"]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -324.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_2umhq")
+[node name="Rope" type="Node2D"]
 script = ExtResource("2_apfnn")
+
+[node name="RopeSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("1_2umhq")
+
+[node name="HeartSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("3_7n0t7")
+
+[node name="HeartArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HeartArea"]
+polygon = PackedVector2Array(37, -61, 66, -39, 67, 0, 2, 59, -64, -4, -59, -42, -32, -59, 4, -33)
+
+[connection signal="area_entered" from="HeartArea" to="." method="_on_heart_area_area_entered"]
+[connection signal="body_entered" from="HeartArea" to="." method="_on_heart_area_body_entered"]

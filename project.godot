@@ -27,6 +27,11 @@ action={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="heart"
+2d_physics/layer_2="projectile"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3bwegkevylm"]
+
+[ext_resource type="Texture2D" uid="uid://d1uiku645fnm2" path="res://assets/ball.png" id="1_dr4jj"]
+
+[sub_resource type="Curve" id="Curve_wlmoe"]
+_data = [Vector2(0.0280899, 1), 0.0, -0.634392, 0, 0, Vector2(1, 0.384615), 0.295252, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2tthi"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxu25"]
+radius = 52.0384
+
+[node name="Projectile" type="RigidBody2D"]
+collision_layer = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 5
+lifetime = 0.25
+texture = ExtResource("1_dr4jj")
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_wlmoe")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("Gradient_2tthi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+texture = ExtResource("1_dr4jj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pxu25")
