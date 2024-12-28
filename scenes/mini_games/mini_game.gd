@@ -5,8 +5,6 @@ signal lost()
 
 @export var difficulty = 1
 
-@onready var timer = $Timer
-
 var score = 0.0
 
 func _ready() -> void:
@@ -15,13 +13,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	score = clamp(score, -Globals.MAX_MINI_GAME_SCORE, Globals.MAX_MINI_GAME_SCORE)
-	if score == Globals.MAX_MINI_GAME_SCORE:
+	if score >= Globals.MAX_MINI_GAME_SCORE:
 		_on_won_game()
-	elif score == -Globals.MAX_MINI_GAME_SCORE:
+	elif score <= -Globals.MAX_MINI_GAME_SCORE:
 		_on_lost_game()
-
-func _on_timer_timeout() -> void:
-	_on_lost_game()
 
 func _on_won_game() -> void:
 	won.emit()

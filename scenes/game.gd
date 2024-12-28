@@ -4,6 +4,7 @@ class_name Game extends Node2D
 @export var active_game: MiniGame = null
 
 @onready var mini_games: Array[PackedScene] = [
+	preload("res://scenes/mini_games/react.tscn"),
 	preload("res://scenes/mini_games/time.tscn"),
 	preload("res://scenes/mini_games/hold.tscn"),
 	preload("res://scenes/mini_games/mash.tscn")
