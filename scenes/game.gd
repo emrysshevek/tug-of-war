@@ -4,14 +4,19 @@ class_name Game extends Node2D
 @export var active_game: MiniGame = null
 
 @onready var mini_games: Array[PackedScene] = [
+	preload("res://scenes/mini_games/time.tscn"),
 	preload("res://scenes/mini_games/hold.tscn"),
 	preload("res://scenes/mini_games/mash.tscn")
 ]
+@onready var rope: Rope = $Foreground/Control/Rope
 
 var game_index := -1
 
 func _ready() -> void:
 	_next_game()
+
+func _process(delta: float) -> void:
+	rope.value = active_game.score / Globals.MAX_MINI_GAME_SCORE
 
 func _next_game() -> void:
 	if active_game != null:

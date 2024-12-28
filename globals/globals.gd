@@ -7,3 +7,5 @@ extends Node
 
 @export var wins := 0
 @export var losses := 0
+
+@export var inversion_amount := 0.0

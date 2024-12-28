@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu5uf0l5y5o3d"]
+
+[ext_resource type="PackedScene" uid="uid://dhmaolqqgtsg0" path="res://scenes/mini_games/mini_game.tscn" id="1_qb3ke"]
+[ext_resource type="Script" path="res://scenes/mini_games/time.gd" id="2_0xekq"]
+
+[node name="Time" instance=ExtResource("1_qb3ke")]
+script = ExtResource("2_0xekq")

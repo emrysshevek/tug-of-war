@@ -5,17 +5,20 @@ signal lost()
 
 @export var difficulty = 1
 
-@onready var label = $CanvasLayer/Control/Label
-@onready var bar = $CanvasLayer/Control/ProgressBar
 @onready var timer = $Timer
 
 var score = 0.0
 
 func _ready() -> void:
-	label.text = name
+	Globals.inversion_amount = 0
+
 
 func _process(_delta: float) -> void:
-	bar.value = score
+	score = clamp(score, -Globals.MAX_MINI_GAME_SCORE, Globals.MAX_MINI_GAME_SCORE)
+	if score == Globals.MAX_MINI_GAME_SCORE:
+		_on_won_game()
+	elif score == -Globals.MAX_MINI_GAME_SCORE:
+		_on_lost_game()
 
 func _on_timer_timeout() -> void:
 	_on_lost_game()
