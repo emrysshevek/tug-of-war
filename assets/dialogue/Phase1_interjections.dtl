@@ -1,18 +1,1 @@
-[style]
-if randf() < .5:
-	jump Light
-else:
-	jump Dark
-label Light
-if randf() < .33:
-	label light_positive
-	<You're doing great!/Keep it up!/Just a bit more!>
-elif randf() < .66:
-	label light_negative
-	<What are you doing?/Why are you doing this to me?/Stop! You're going to get hurt>
-else:
-	label light_neutral
-	<How did this chain get here?/Where is this music coming from?>
-[end_timeline]
-label Dark
-[end_timeline]
+

@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://globals/Globals.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Interjections="*res://globals/Interjections.gd"
+Interjections="*res://globals/interjections.tscn"
 
 [dialogic]
 

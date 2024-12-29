@@ -29,9 +29,6 @@ func _process(delta: float) -> void:
 		rope.value = active_game.score / Globals.MAX_MINI_GAME_SCORE
 
 func _next_game() -> void:
-	if active_game != null:
-		active_game.queue_free()
-
 	game_index = (game_index + 1) % len(mini_games)
 	active_game = mini_games[game_index].instantiate()
 	active_game.difficulty = difficulty
@@ -50,11 +47,13 @@ func _on_mini_game_lost() -> void:
 	_on_mini_game_end("light" if Globals.current_side == 1 else "dark")
 
 func _on_mini_game_end(winner: String) -> void:
+	if active_game != null and is_instance_valid(active_game):
+		active_game.queue_free()
+		
 	Dialogic.VAR.state.last_winner = winner
-	start_game()
-	# if Dialogic.current_timeline == null:
-	# 	Dialogic.start_timeline("Phase1_interjections")
-	# Dialogic.timeline_ended.connect(start_game)
+	if Dialogic.current_timeline == null:
+		Interjections.play_interjection()
+	Dialogic.timeline_ended.connect(start_game)
 
 func _check_game_end() -> bool:
 	if abs(Globals.score) >= Globals.MAX_WINS:
