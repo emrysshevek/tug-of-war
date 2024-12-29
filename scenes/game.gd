@@ -26,7 +26,7 @@ func start_game() -> void:
 
 func _process(delta: float) -> void:
 	if active_game != null:
-		rope.value = active_game.score / Globals.MAX_MINI_GAME_SCORE
+		rope.value = Globals.current_side * active_game.score / Globals.MAX_MINI_GAME_SCORE
 
 func _next_game() -> void:
 	game_index = (game_index + 1) % len(mini_games)
@@ -49,7 +49,7 @@ func _on_mini_game_lost() -> void:
 func _on_mini_game_end(winner: String) -> void:
 	if active_game != null and is_instance_valid(active_game):
 		active_game.queue_free()
-		
+
 	Dialogic.VAR.state.last_winner = winner
 	if Dialogic.current_timeline == null:
 		Interjections.play_interjection()

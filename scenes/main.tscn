@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b581je8occbnc"]
+[gd_scene load_steps=4 format=3 uid="uid://b581je8occbnc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ypbl2"]
 [ext_resource type="AudioStream" uid="uid://cohfj3rv5a358" path="res://assets/music/Light Theme.mp3" id="2_2pikq"]
+[ext_resource type="Texture2D" uid="uid://c6qpbmo27yukp" path="res://assets/sprites/ui/Background1.png" id="2_quuyu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ypbl2")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Control" type="Control" parent="Background"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_quuyu")
+expand_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_2pikq")

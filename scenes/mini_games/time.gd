@@ -1,6 +1,7 @@
 extends MiniGame
 
 func _ready() -> void:
+	Globals.inversion_amount = 0
 	start_tween()
 
 func start_tween() -> void:

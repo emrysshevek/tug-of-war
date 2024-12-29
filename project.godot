@@ -31,12 +31,19 @@ directories/dch_directory={
 directories/dtl_directory={
 "Introduction": "res://assets/dialogue/Introduction.dtl",
 "Phase1": "res://assets/dialogue/Phase1.dtl",
-"Phase1_interjections": "res://assets/dialogue/Phase1_interjections.dtl",
+"Phase2": "res://assets/dialogue/Phase2.dtl",
+"Phase3": "res://assets/dialogue/Phase3.dtl",
 "test": "res://assets/dialogue/test.dtl"
 }
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://assets/dialogue/default_style.tres"]
+layout/default_style="res://assets/dialogue/default_style.tres"
 variables={
+"dialog": {
+"dark": false,
+"dark2": false,
+"light": false,
+"light2": false
+},
 "intro_questions": {
 "dead": false,
 "what": false,

@@ -1,4 +1,3 @@
-[style]
 join Light left [animation="Slide In Right"]
 join Dark right [animation="Slide In Left" mirrored="true"]
 Light: Oh, look, a new soul! This is so exciting I never get to be around for this!
