@@ -15,7 +15,14 @@ class_name Game extends Node2D
 var game_index := -1
 
 func _ready() -> void:
-	_next_game()
+	Dialogic.timeline_ended.connect(start_game)
+	Dialogic.signal_event.connect(_on_dialogue_signal)
+
+func start_game() -> void:
+	if Dialogic.timeline_ended.is_connected(start_game):
+		Dialogic.timeline_ended.disconnect(start_game)
+	if not _check_game_end():
+		_next_game()
 
 func _process(delta: float) -> void:
 	if active_game != null:
@@ -34,24 +41,29 @@ func _next_game() -> void:
 
 func _on_mini_game_won() -> void:
 	print("mini game won: ", active_game.name)
-	difficulty += 1
-	Globals.wins += 1
-	if not _check_game_end():
-		_next_game()
+	Globals.update_from_winner(Globals.current_side)
+	_on_mini_game_end("light" if Globals.current_side == -1 else "dark")
 
 func _on_mini_game_lost() -> void:
 	print("mini game lost: ", active_game.name)
-	Globals.losses += 1
-	if not _check_game_end():
-		_next_game()
+	Globals.update_from_winner(-Globals.current_side)
+	_on_mini_game_end("light" if Globals.current_side == 1 else "dark")
+
+func _on_mini_game_end(winner: String) -> void:
+	Dialogic.VAR.state.last_winner = winner
+	start_game()
+	# if Dialogic.current_timeline == null:
+	# 	Dialogic.start_timeline("Phase1_interjections")
+	# Dialogic.timeline_ended.connect(start_game)
 
 func _check_game_end() -> bool:
-	if Globals.wins >= Globals.MAX_WINS:
+	if abs(Globals.score) >= Globals.MAX_WINS:
 		active_game.queue_free()
 		add_child(preload("res://scenes/win_screen.tscn").instantiate())
 		return true
-	elif Globals.losses >= Globals.MAX_LOSSES:
-		active_game.queue_free()
-		add_child(preload("res://scenes/lose_screen.tscn").instantiate())
-		return true
 	return false
+
+func _on_dialogue_signal(arg: Dictionary) -> void:
+	if arg.type == "side":
+		Globals.current_side = arg.value
+		print("new side is ", Globals.current_side)

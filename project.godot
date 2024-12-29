@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://globals/Globals.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Interjections="*res://globals/Interjections.gd"
 
 [dialogic]
 
@@ -29,7 +30,9 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Introduction": "res://assets/dialogue/Introduction.dtl",
-"Phase1": "res://assets/dialogue/Phase1.dtl"
+"Phase1": "res://assets/dialogue/Phase1.dtl",
+"Phase1_interjections": "res://assets/dialogue/Phase1_interjections.dtl",
+"test": "res://assets/dialogue/test.dtl"
 }
 layout/style_list=[]
 layout/default_style=""
@@ -40,15 +43,19 @@ variables={
 "where": false,
 "who": false
 },
-"player_name": ""
+"player_name": "",
+"state": {
+"last_winner": "dark",
+"side": "dark"
+}
 }
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.01
+text/letter_speed=0.02
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
 text/autoadvance_per_character_delay=0.1
-text/autoadvance_ignored_characters_enabled=true
+text/autoadvance_ignored_characters_enabled=false
 audio/max_channels=4.0
 animations/join_default_length=0.5
 animations/join_default_wait=true
@@ -62,6 +69,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+text/autoadvance_enabled=false
 
 [editor_plugins]
 
