@@ -1,0 +1,16 @@
+[style]
+join Light leftmost [animation="Slide In Right" wait="true"]
+Light: Now look what you've done! She's ruined!
+join Dark rightmost [animation="Slide In Left" wait="true"]
+Dark: Calm down, she's not "ruined". But she is in a very delicate state right now, thanks to you.
+Light: THANKS TO ME??? You're the one trying to eradicate this beautiful flower!
+Dark: Why do you keep blaming this on me?! I'm the one trying to-
+Dark: You know what, it's not worth it. Let's just deal with problem at hand, I'm sick of this.
+Light: Flower, can you hear me? Are you all right?
+- What's going on? Please help me!
+	Dark: You're soul is splitting in half. Natural consequence of being pulled apart I suppose.
+- I think so. I can still hear you at least.
+	Dark: If you can still hear then listen up.
+- Does it look like I'm alright??? What did you two do to me?
+	Dark: <Empty Text Event>
+Light: Oh you poor thing. Don't worry, just come over here and I'll take care of you.

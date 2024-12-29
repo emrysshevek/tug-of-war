@@ -17,7 +17,6 @@ func _ready() -> void:
 		timer.start()
 
 func shoot(dir := Vector2.INF) -> void:
-	print("shooting projectile")
 	if dir == Vector2.INF:
 		dir = direction
 	

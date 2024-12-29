@@ -18,7 +18,8 @@ func _ready() -> void:
 	_next_game()
 
 func _process(delta: float) -> void:
-	rope.value = active_game.score / Globals.MAX_MINI_GAME_SCORE
+	if active_game != null:
+		rope.value = active_game.score / Globals.MAX_MINI_GAME_SCORE
 
 func _next_game() -> void:
 	if active_game != null:
