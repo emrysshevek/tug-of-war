@@ -17,7 +17,7 @@
 "portraits": {
 "temp": {
 "export_overrides": {
-"image": "\"res://assets/sprites/Dark.png\""
+"image": "\"res://assets/sprites/dark/dark-temp.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
