@@ -6,8 +6,10 @@ Light: Aww but she's so CUTE! Just look at her!
 Dark: Yeah, I’m looking and it looks the same as the other 100 billion that have come through here. Now let me deal with it before you get too attached.
 Light: Oh my goodness her eyes are opening!
 [wait time="2.0"]
-Light: Hello there little one!
-Light: It's ok, you're safe here. We're not going to hurt you, right love?
+Light: Hello there little one! What's your name?
+[text_input text="Enter your name: " var="player_name"]
+Light: Aww {player_name} that's a beautiful name.
+Light:  Don't worry you're safe here. We're not going to hurt you, right love?
 Dark: ...
 Light: [speed=10] RIGHT LOVE???
 Dark: No of course I'm not gonna hurt it!

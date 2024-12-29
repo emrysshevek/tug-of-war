@@ -33,20 +33,20 @@ directories/dtl_directory={
 "Phase1": "res://assets/dialogue/Phase1.dtl",
 "Phase2": "res://assets/dialogue/Phase2.dtl",
 "Phase3": "res://assets/dialogue/Phase3.dtl",
+"Resolution": "res://assets/dialogue/Resolution.dtl",
 "test": "res://assets/dialogue/test.dtl"
 }
 layout/style_list=["res://assets/dialogue/default_style.tres"]
 layout/default_style="res://assets/dialogue/default_style.tres"
 variables={
 "dialog": {
-"dark": false,
 "dark2": false,
-"light": false,
-"light2": false
+"dark3": false,
+"light2": false,
+"light3": false
 },
 "intro_questions": {
 "dead": false,
-"what": false,
 "where": false,
 "who": false
 },

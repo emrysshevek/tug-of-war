@@ -6,7 +6,7 @@ if {state.side} == "light":
 else:
 	jump Light
 label Light
-set {dialog.light} = true
+set {dialog.light2} = true
 if Globals.last_winner  ==  -1:
 	Light: I knew you wanted to come with me!
 # Light's first argument: Dark wants to force you into the unknown. With me it's familiar and safe
@@ -16,7 +16,6 @@ Light: You're so full of beauty and life, I don't want to lose that. And I'd hop
 - Of course I don't want to lose that.
 	Light: I didn't think so. I want your light to shine forever!
 - I already died once, how much worse can it get?
-	set {dialog.light2} = true
 	Light: It's not about if it can get worse, but if can get better!
 	Light: Oh, I can hardly begin to describe how great life can be
 	Light: The universe is brimming with vitality, so many interesting things to see and experience.
@@ -33,7 +32,7 @@ Light: What do you say love? Who's side are you going to choose?
 	Light: Why won't you trust me?! How could you just throw away your own life like this?
 [end_timeline]
 label Dark
-set {dialog.dark} = true
+set {dialog.dark2} = true
 # Dark's first argument: Light wants you to stagnate. What are you possibly going to do for eternity? You're bound for bigger and better things
 if Globals.last_winner  ==  1:
 	Dark: Glad you're starting to come around kid.
@@ -41,7 +40,6 @@ Dark: I know it's not all daisies and sunshine over here but trust me, you do no
 Dark: Let's just say you wouldn't be the first pet she collared, and if she had her way you wouldn't be the last
 Dark: Sure you might be happy at first, but what about after you've spent 1000 millenia planting trees and smelling flowers
 - I'm sure I could find something to do, the universe is endless isn't it?
-	set {dialog.dark2} = true
 	Dark: Enough to occupy you for [b]ETERNITY???[/b]
 	Dark: I feel like you're just not getting it. This isn't just a really long time, it's [pause=.5][speed=20]forever.
 	Dark: Let's assume for a second that you are a particularly curious one. What do you do after you've examined every particle in the known universe?

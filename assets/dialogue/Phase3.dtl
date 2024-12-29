@@ -6,9 +6,11 @@ if {state.side} == "light":
 else:
 	jump Light
 label Light
+set {dialog.light3} = true
 if Globals.last_winner  ==  -1:
 	Light: Thank goodness {player_name}, there's still time
 # Light's argument: You have value as you are. Dark only sees you for you potential
+set 
 Light: Please {player_name}, you have to listen to me.
 Light: No matter how you might feel about yourself, you are precious.
 Light: Not for what you might do or who you might become, but for who you are right now.
@@ -29,10 +31,11 @@ Light: Please, {player_name}.
 - I'm sorry but I have to do this
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]
-	Dark: Finally! You're making the right choice {player_name}, I promise
-	Light: NOOOOOOO!!! I refuse to let you go! 
+	Dark: Finally! You're making the right choice {player_name}. I promise I'll be with you every step of the way.
+	Light: NOOOOOOO!!! I refuse to let you go!
 [end_timeline]
 label Dark
+set {dialog.dark3} = true
 # Dark's argument: “In order to change, the self must die”, the only way we can grow is by stepping out of our comfort zones and into the unknown
 if Globals.last_winner  ==  1:
 	Dark: You're certainly not making it easy on me.
@@ -49,7 +52,7 @@ Dark: So what'll it be {player_name}? Eternal death...or rebirth?
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
 	Light: That's right, you can't just call death "life" and life "death". It doesn't work like that!
 	Light: I'm so glad you were able to see through the lies.
-	Dark: You cowardly piece of shit! I've had it up to here with you! 
+	Dark: You cowardly piece of shit! I've had it up to here with you!
 	Dark: You're coming with me whether you like it or not!
 - If you're there with me, I think I can do it.
 	set {state.side} = "dark"
