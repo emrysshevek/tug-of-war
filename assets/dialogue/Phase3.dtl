@@ -8,8 +8,8 @@ else:
 label Light
 set {dialog.light3} = true
 if Globals.last_winner  ==  -1:
-	Light: Thank goodness {player_name}, there's still time
-# Light's argument: You have value as you are. Dark only sees you for you potential
+	Light: Thank goodness {player_name}, there's still time.
+# Light's argument: You have value as you are. Dark only sees you for your potential
 set 
 Light: Please {player_name}, you have to listen to me.
 Light: No matter how you might feel about yourself, you are precious.
@@ -17,11 +17,11 @@ Light: Not for what you might do or who you might become, but for who you are ri
 Light: I only wish you could see yourself the way I do.
 Light: A beautiful, tender soul, unique among all beings in the universe.
 Light: Your light is practically outshining my own!
-Light: It breaks my heart to think about a presence as strong as your own suddenly absent.
+Light: It breaks my heart to think about a presence as strong as your own suddenly vanishing.
 Light: The universe would be a colder place without you in it.
 [wait time="2.0"]
 Light: Please, {player_name}.
-- You're right, I don't want to lose everything
+- You're right, I don't want to lose everything.
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
 	Light: Oh thank goddesses! You don't know how scared I was.
@@ -58,5 +58,5 @@ Dark: So what'll it be {player_name}? Eternal death...or rebirth?
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]
 	Dark: I'll be next to you every step of the way, I promise.
-	Light: NOOOO!! You can't do this to me! I refuse to let you go!
+	Light: NOOOO!! I won't let you do this! I refuse to let you go!
 [end_timeline]

@@ -12,8 +12,8 @@ if {state.side} == "light":
 	Dark: I've already said my piece. I clearly can't make up your mind for you and at this point I'm sick of trying.
 	Dark: It's up to you now.
 else:
-	Light: I know I can't change your mind. All I can do now is hope that you'll make the right decision
-Dark: Give it to us straight, the suspense is killing me
+	Light: I know I can't change your mind. All I can do now is hope that you'll make the right decision.
+Dark: Give it to us straight, the suspense is killing me.
 - Light
 	jump Light
 - Dark
@@ -23,14 +23,14 @@ Dark: Give it to us straight, the suspense is killing me
 	Light: {player_name}, what do you mean no?
 	- There has to be another way!
 	Dark: Look  {player_name}, I get that you have cold feet, but there really is no other way.
-	- That's bullshit and you know it
+	- That's bullshit and you know it.
 	Dark: Excuse me? This is how it works! This is how it's always worked!
 	Light: {player_name}, you have to listen-
-	- No, you listen to me
+	- No, you listen to me.
 	<Empty Text Event>
 	- You both talk about how much you value me
 	<Empty Text Event>
-	- Or how much potential for growth I have
+	- And how much potential for growth I have
 	<Empty Text Event>
 	- But neither of you have respected my agency
 	<Empty Text Event>
@@ -42,11 +42,11 @@ Dark: Give it to us straight, the suspense is killing me
 	Dark: C'mon {player_name}-
 	- Hold on, I'm not done yet.
 	<Empty Text Event>
-	- In a way both of you are right
+	- In a way both of you are right.
 	<Empty Text Event>
 	- Everything in the universe has inherent value simply for existing.
 	<Empty Text Event>
-	- And everything has value for its potential to become something new
+	- And everything has value for its potential to become something new.
 	<Empty Text Event>
 	- But in another way, you're both wrong.
 	<Empty Text Event>
@@ -54,16 +54,16 @@ Dark: Give it to us straight, the suspense is killing me
 	<Empty Text Event>
 	- Value can only be determined by the thing itself.
 	<Empty Text Event>
-	- Otherwise it's meaningless
+	- Otherwise it's meaningless.
 	Light: ...
 	Dark: ...
-	Light: Oh {player_name}, I'm so sorry
-	Light: You're absolutely right
-	Dark: I'm not sure I agree with everything you said
-	Dark: But I see your point
+	Light: Oh {player_name}, I'm so sorry.
+	Light: You're absolutely right.
+	Dark: I'm not sure I agree with everything you said...
+	Dark: But I see your point.
 	Dark: You can stick around as long as you want.
-	Light: And Of course you'll be free to leave whenever you want
-	Light: [font_size=10](I'll still miss you when you go though)[/font_size]
+	Light: And of course you'll be free to leave whenever you want.
+	Light: [font_size=10](I'll still miss you when you go though.)[/font_size]
 	[signal arg_type="dict" arg="{"type":"ending","value":"compromise"}"]
 	[end_timeline]
 label Light
@@ -71,6 +71,6 @@ Light: Don't worry sweetie, you're safe now. I won't let anything hurt you ever 
 [signal arg_type="dict" arg="{"type":"ending","value":"light"}"]
 [end_timeline]
 label Dark
-Dark: Knock 'em dead kid. You're gonna kill it as a galaxy
+Dark: Knock 'em dead kid. You're gonna kill it as a galaxy.
 [signal arg_type="dict" arg="{"type":"ending","value":"dark"}"]
 [end_timeline]

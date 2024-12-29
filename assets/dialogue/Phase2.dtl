@@ -11,16 +11,16 @@ if Globals.last_winner  ==  -1:
 	Light: I knew you wanted to come with me!
 # Light's first argument: Dark wants to force you into the unknown. With me it's familiar and safe
 Light: Listen love, if Dark gets her way, who knows what might happen to you.
-Light: Everything that makes you you could be gone in the blink of an eye
-Light: You're so full of beauty and life, I don't want to lose that. And I'd hope that you don't either
+Light: Everything that makes you you could be gone in the blink of an eye.
+Light: You're so full of beauty and life, I don't want to lose that. And I hope that you don't either.
 - Of course I don't want to lose that.
 	Light: I didn't think so. I want your light to shine forever!
 - I already died once, how much worse can it get?
 	Light: It's not about if it can get worse, but if can get better!
-	Light: Oh, I can hardly begin to describe how great life can be
+	Light: Oh, I can hardly begin to describe how great life can be.
 	Light: The universe is brimming with vitality, so many interesting things to see and experience.
 	Light: And we can do it together! Forever!
-Light: What do you say love? Who's side are you going to choose?
+Light: What do you say love? Whose side are you going to choose?
 - Go with Light
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
@@ -37,8 +37,8 @@ set {dialog.dark2} = true
 if Globals.last_winner  ==  1:
 	Dark: Glad you're starting to come around kid.
 Dark: I know it's not all daisies and sunshine over here but trust me, you do not want to spend eternity with little Miss Happy-Go-Lucky over there.
-Dark: Let's just say you wouldn't be the first pet she collared, and if she had her way you wouldn't be the last
-Dark: Sure you might be happy at first, but what about after you've spent 1000 millenia planting trees and smelling flowers
+Dark: Let's just say you wouldn't be the first pet she collared, and if she has her way you wouldn't be the last either.
+Dark: Sure you might be happy at first, but what about after you've spent 1000 millenia planting trees and smelling flowers?
 - I'm sure I could find something to do, the universe is endless isn't it?
 	Dark: Enough to occupy you for [b]ETERNITY???[/b]
 	Dark: I feel like you're just not getting it. This isn't just a really long time, it's [pause=.5][speed=20]forever.
@@ -46,7 +46,7 @@ Dark: Sure you might be happy at first, but what about after you've spent 1000 m
 	Dark: How 'bout after you've heard every possible combination of frequencies that can make up a song?
 	Dark: After you've seen every possible juxtaposition of color on canvas?
 	Dark: Once you've seen everything there is to see and done everything there is to do, you still have ETERNITY left!
-- I guess I don't really know
+- I guess I don't really know.
 	Dark: I'll tell you what happens--nothing. [pause=1] Absolutely nothing.
 Dark: I know it's scary, but dissolution is the natural end of a human soul.
 Dark: Once you embrace it, you can finally move on to bigger and better things.
@@ -55,7 +55,7 @@ Dark: So what's it gonna be kid? Her or me?
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
 	Light: I knew you would make the right choice!
-	Dark: You're making a big mistake kid. Some things are worse than death
+	Dark: You're making a big mistake kid. Some things are worse than death.
 - Go with Dark
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]

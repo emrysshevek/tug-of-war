@@ -8,15 +8,15 @@ Dark: Why do you keep blaming this on me?! I'm the one trying to-
 Dark: You know what, it's not worth it. Let's just deal with problem at hand, I'm sick of this.
 Light: Flower, can you hear me? Are you all right?
 - What's going on? Please help me!
-	Dark: You're soul is splitting in half. Natural consequence of being pulled apart I suppose.
+	Dark: Your soul is splitting in half. Natural consequence of being pulled apart I suppose.
 - I think so. I can still hear you at least.
-	Dark: If you can still hear then listen up. You're being ripped in half.
+	Dark: If you can still hear, then listen up. You're being ripped in half.
 - Does it look like I'm alright??? What did you two do to me?
 	Dark: Easy, easy, you're gonna be fine....
 	Dark: You are kinda being torn in half though...
 Dark: It's not the end of the world though. All you have to do is choose a side and you'll come back together.
 Light: Oh you poor thing.
-Light: Don't worry, just come over here and let me take care of you.  I'll put you right back to how you were.
+Light: Don't worry, just come over here and let me take care of you. I'll put you right back to how you were.
 Dark: Trust me kid, you don't want to do that. Come with me, it's time to move on.
 - Go with Light
 	set {state.side} = "light"
