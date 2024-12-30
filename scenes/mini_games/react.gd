@@ -10,7 +10,7 @@ var elapsed_time := 10.0
 func _ready() -> void:
 	super._ready()
 	inversion_amount = Globals.inversion_amount
-	timer.wait_time = randf_range(1, 2)
+	timer.wait_time = randf_range(1, 3)
 	timer.start()
 
 func _physics_process(delta: float) -> void:
@@ -20,8 +20,6 @@ func _physics_process(delta: float) -> void:
 			score -= delta * 3000
 		else:
 			score += (1 - elapsed_time) * delta * 3000
-	else:
-		score -= delta * 10
 
 	elapsed_time += delta
 

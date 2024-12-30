@@ -7,10 +7,10 @@ func _ready() -> void:
 	Globals.heart_hit.connect(_on_heart_hit)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("action"):
-		score += 10
-	
-	score -= delta * 10
+	if Input.is_action_pressed("action"):
+		score += delta * pull_speed
+	else:
+		score -= delta * pull_speed
 
 func _on_heart_hit() -> void:
-	score -= 10
+	score -= pull_speed

@@ -6,8 +6,8 @@ signal game_ended()
 @export var active_game: MiniGame = null
 
 @onready var mini_games: Array[PackedScene] = [
-	preload("res://scenes/mini_games/hold.tscn"),
 	preload("res://scenes/mini_games/time.tscn"),
+	preload("res://scenes/mini_games/hold.tscn"),
 	preload("res://scenes/mini_games/react.tscn"),
 	preload("res://scenes/mini_games/dodge.tscn"),
 ]
@@ -19,11 +19,16 @@ var prev_game: PackedScene = null
 
 func _ready() -> void:
 	Globals.phase_score = 0
+
 	if Globals.current_side == -1:
 		$Background/Control/ColorRect.color = Color.WHITE
 	else:
 		$Background/Control/ColorRect.color = Color.BLACK
+
 	available_games = mini_games.duplicate()
+	if Globals.phase != 0:
+		available_games.shuffle()
+
 	start_game()
 	
 func start_game() -> void:
