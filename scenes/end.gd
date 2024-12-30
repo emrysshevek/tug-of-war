@@ -13,3 +13,7 @@ var backgrounds = {
 func _ready() -> void:
 	print(Globals.ending)
 	texture_rect.texture = backgrounds[Globals.ending]
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("action"):
+		get_tree().change_scene_to_file("res://scenes/title.tscn")

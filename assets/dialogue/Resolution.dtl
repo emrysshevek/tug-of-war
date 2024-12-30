@@ -1,6 +1,13 @@
 [style]
+if {dialog.dark2} == {dialog.light3}:
+	jump Neutral
+elif Globals.score > 0:
+	jump Dark
+else:
+	jump Light
 join Dark right [animation="Slide In Left"]
 join Light left [animation="Slide In Right"]
+
 
 label Neutral
 update Light (Light_Sad) [animation="Tada"]
@@ -96,15 +103,21 @@ Dark: Give it to us straight, the suspense is killing me.
 	update Light (Light_Happy) [animation="Tada"]
 	Light: And of course you'll be free to leave whenever you want!
 	Light: [font_size=10](I'll still miss you when you go though.)[/font_size]
-	[signal arg_type="dict" arg="{"type":"ending","value":"both"}"]
+	[clear time="1.0" portraits="false"]
+	[background arg="res://assets/sprites/ui/Ending_Both.png" fade="0.0"]
+	[wait_input]
 	[end_timeline]
 label Light
+[background arg="res://assets/sprites/ui/Ending_Light.png" fade="0.0"]
+[clear time="1.0" background="false"]
 update Light (Light_Happy) [animation="Tada"]
 Light: Don't worry sweetie, you're safe now. I won't let anything hurt you ever again.
 [signal arg_type="dict" arg="{"type":"ending","value":"light"}"]
 [end_timeline]
 label Dark
 update Dark (Dark_Happy) [animation="Tada"]
+[background arg="res://assets/sprites/ui/Ending_Dark.png" fade="5.0"]
 Dark: Knock 'em dead kid. You're gonna kill it as a galaxy.
+[clear time="1.0" step="false" background="false"]
 [signal arg_type="dict" arg="{"type":"ending","value":"dark"}"]
 [end_timeline]
