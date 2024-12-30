@@ -29,7 +29,7 @@ func shoot(dir := Vector2.INF) -> void:
 	var proj_scale = randf_range(.3, 1)
 	projectile.update_scale(Vector2(proj_scale, proj_scale))
 	add_child(projectile)
-	projectile.apply_central_force(dir.normalized() * 10 * (1/proj_scale))
+	projectile.apply_central_force(dir.normalized() * 20 * (1/proj_scale))
 
 
 func _on_timer_timeout() -> void:
