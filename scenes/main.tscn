@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ypbl2"]
 [ext_resource type="Texture2D" uid="uid://c6qpbmo27yukp" path="res://assets/sprites/ui/Background1.png" id="2_quuyu"]
-[ext_resource type="AudioStream" uid="uid://blbbb0twxsa1b" path="res://assets/music/Main_Theme_Full.mp3" id="3_144on"]
+[ext_resource type="AudioStream" uid="uid://2827oybgrkx4" path="res://assets/music/Main_Theme_Full.mp3" id="3_144on"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ypbl2")
