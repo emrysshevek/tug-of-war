@@ -9,7 +9,6 @@ script = ExtResource("1_ypbl2")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
-visible = false
 
 [node name="Control" type="Control" parent="Background"]
 layout_mode = 3

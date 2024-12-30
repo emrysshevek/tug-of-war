@@ -12,6 +12,7 @@ var game: Game
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_introduction_ended)
+	Dialogic.signal_event.connect(_on_dialogue_signal)
 	Dialogic.start_timeline("Introduction")
 
 func _on_introduction_ended() -> void:
@@ -46,3 +47,10 @@ func _on_game_ended() -> void:
 
 func _on_resolution_ended() -> void:
 	print("The end :)")
+
+func _on_dialogue_signal(arg: Dictionary) -> void:
+	if arg.type == "side":
+		Globals.current_side = arg.value
+		print("new side is ", Globals.current_side)
+	if arg.type == "outcome":
+		pass

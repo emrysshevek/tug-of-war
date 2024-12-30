@@ -19,14 +19,13 @@ var game_index := -1
 func _ready() -> void:
 	start_game()
 	
-
 func start_game() -> void:
 	if not _check_game_end():
 		_next_game()
 
 func _process(delta: float) -> void:
 	if active_game != null:
-		rope.value = Globals.current_side * active_game.score / Globals.MAX_MINI_GAME_SCORE
+		rope.value = Globals.current_side * active_game.score / float(Globals.MAX_MINI_GAME_SCORE)
 
 func _next_game() -> void:
 	game_index = (game_index + 1) % len(mini_games)
@@ -35,6 +34,7 @@ func _next_game() -> void:
 	active_game.won.connect(_on_mini_game_won)
 	active_game.lost.connect(_on_mini_game_lost)
 	add_child(active_game)
+	print("playing next mini-game: ", active_game.name)
 
 func _on_mini_game_won() -> void:
 	print("mini game won: ", active_game.name)
@@ -58,8 +58,3 @@ func _check_game_end() -> bool:
 		game_ended.emit()
 		return true
 	return false
-
-func _on_dialogue_signal(arg: Dictionary) -> void:
-	if arg.type == "side":
-		Globals.current_side = arg.value
-		print("new side is ", Globals.current_side)
