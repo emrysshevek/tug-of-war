@@ -4,14 +4,14 @@ signal heart_hit()
 
 @export var MAX_MINI_GAME_SCORE = 100
 
-@export var MAX_WINS := 5
 @export var MAX_LOSSES := 3
 
 @export var current_side := 0
 
 @export var score := 0
 
-@export var phase := 2
+@export var phase := 0
+@export var required_wins := 5
 @export var phase_score := 0
 @export var last_winner := 0
 

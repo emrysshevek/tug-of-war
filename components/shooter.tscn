@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqppeap5v5auv"]
+[gd_scene load_steps=3 format=3 uid="uid://bqppeap5v5auv"]
 
 [ext_resource type="Script" path="res://components/shooter.gd" id="1_nipiy"]
+[ext_resource type="Texture2D" uid="uid://dgdtdqjhjqjmr" path="res://icon.svg" id="2_sjaa4"]
 
 [node name="Shooter" type="Node2D"]
 script = ExtResource("1_nipiy")
+min_delay = 2.5
+max_delay = 5.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sjaa4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

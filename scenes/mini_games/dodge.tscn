@@ -9,11 +9,45 @@
 script = ExtResource("2_w3he2")
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
-position = Vector2(2, -47)
 
 [node name="Shooter" parent="." index="1" instance=ExtResource("3_gxec5")]
-position = Vector2(5, -481)
+position = Vector2(0, -399)
 scene = ExtResource("4_a1qmb")
 direction = Vector2(0, 1)
-min_delay = 0.5
-max_delay = 1.0
+spray = 45.0
+auto_shoot = false
+
+[node name="Shooter2" parent="." index="2" instance=ExtResource("3_gxec5")]
+position = Vector2(0, 399)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(0, -1)
+spray = 45.0
+auto_shoot = false
+
+[node name="Shooter3" parent="." index="3" instance=ExtResource("3_gxec5")]
+position = Vector2(-649, 399)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(2, -1)
+spray = 15.0
+auto_shoot = false
+
+[node name="Shooter4" parent="." index="4" instance=ExtResource("3_gxec5")]
+position = Vector2(640, -399)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(-2, 1)
+spray = 15.0
+auto_shoot = false
+
+[node name="Shooter5" parent="." index="5" instance=ExtResource("3_gxec5")]
+position = Vector2(640, 399)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(-2, -1)
+spray = 15.0
+auto_shoot = false
+
+[node name="Shooter6" parent="." index="6" instance=ExtResource("3_gxec5")]
+position = Vector2(-649, -399)
+scene = ExtResource("4_a1qmb")
+direction = Vector2(2, 1)
+spray = 15.0
+auto_shoot = false

@@ -7,9 +7,9 @@ signal game_ended()
 
 @onready var mini_games: Array[PackedScene] = [
 	# preload("res://scenes/mini_games/time.tscn"),
-	preload("res://scenes/mini_games/react.tscn"),
+	# preload("res://scenes/mini_games/react.tscn"),
 	preload("res://scenes/mini_games/hold.tscn"),
-	# preload("res://scenes/mini_games/dodge.tscn"),
+	preload("res://scenes/mini_games/dodge.tscn"),
 ]
 @onready var rope: Rope = $Rope
 
@@ -78,7 +78,7 @@ func _on_mini_game_end(winner: String) -> void:
 	start_game()
 
 func _check_game_end() -> bool:
-	if abs(Globals.phase_score) >= Globals.MAX_WINS:
+	if abs(Globals.phase_score) >= Globals.required_wins:
 		Globals.phase_score = 0
 		game_ended.emit()
 		return true

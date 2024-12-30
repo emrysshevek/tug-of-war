@@ -13,16 +13,23 @@ signal shot(projectile: RigidBody2D)
 
 func _ready() -> void:
 	if auto_shoot:
-		timer.wait_time = randf_range(min_delay, max_delay)
-		timer.start()
+		start_auto_shoot()
+
+func start_auto_shoot() -> void:
+	auto_shoot = true
+	timer.wait_time = randf_range(min_delay, max_delay)
+	timer.start()
 
 func shoot(dir := Vector2.INF) -> void:
 	if dir == Vector2.INF:
 		dir = direction
-	
-	var projectile: RigidBody2D = scene.instantiate()
+	dir = dir.rotated(deg_to_rad(randf_range(-spray, spray)))
+
+	var projectile: Projectile = scene.instantiate()
+	var proj_scale = randf_range(.3, 1)
+	projectile.update_scale(Vector2(proj_scale, proj_scale))
 	add_child(projectile)
-	projectile.apply_force(dir.normalized() * 25)
+	projectile.apply_central_force(dir.normalized() * 10 * (1/proj_scale))
 
 
 func _on_timer_timeout() -> void:

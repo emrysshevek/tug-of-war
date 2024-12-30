@@ -11,17 +11,17 @@ var game: Game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Dialogic.Inputs.auto_skip.enabled = true
-	Dialogic.Inputs.auto_skip.disable_on_user_input = false
-	Dialogic.Inputs.auto_skip.disable_on_unread_text = false
-	Dialogic.Inputs.auto_skip.toggled.connect(_reenable_auto_skip)
+	# Dialogic.Inputs.auto_skip.enabled = true
+	# Dialogic.Inputs.auto_skip.disable_on_user_input = false
+	# Dialogic.Inputs.auto_skip.disable_on_unread_text = false
+	# Dialogic.Inputs.auto_skip.toggled.connect(_reenable_auto_skip)
 
 	Dialogic.timeline_ended.connect(_on_introduction_ended)
 	Dialogic.signal_event.connect(_on_dialogue_signal)
 	Dialogic.start_timeline("Introduction")
 
-func _reenable_auto_skip(_is_enabled: bool) -> void:
-	Dialogic.Inputs.auto_skip.enabled = true
+# func _reenable_auto_skip(_is_enabled: bool) -> void:
+# 	Dialogic.Inputs.auto_skip.enabled = true
 
 func _on_introduction_ended() -> void:
 	print("Introduction dialogue ended")
@@ -50,6 +50,7 @@ func _on_game_ended() -> void:
 	print("Battle ended")
 	game.queue_free()
 	Globals.phase += 1
+	Globals.required_wins *= 2
 
 	if Globals.phase < len(phase_timelines):
 		_start_next_phase()
