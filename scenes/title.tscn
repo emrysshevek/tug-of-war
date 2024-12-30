@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvwe2qkmiyxcn"]
+[gd_scene load_steps=6 format=3 uid="uid://dvwe2qkmiyxcn"]
 
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_7xg8h"]
 [ext_resource type="Texture2D" uid="uid://bcykervrl6p4u" path="res://assets/sprites/ui/Title_Screen_Blank.png" id="1_dc54r"]
 
 [sub_resource type="Animation" id="Animation_ndy8s"]
@@ -41,6 +42,7 @@ _data = {
 }
 
 [node name="Title" type="Node2D"]
+script = ExtResource("1_7xg8h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,6 +71,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_dc54r")
 expand_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -66.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.665604, 1.96133e-06, 4.33177e-07, 1)
+theme_override_font_sizes/font_size = 96
+text = "All's Fair in Tug of War"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctxegjt6aarkj"]
+
+[ext_resource type="Texture2D" uid="uid://bihwrr22tur36" path="res://assets/sprites/ui/Stage_Decor_Light.png" id="1_410yx"]
+
+[node name="Decor" type="Sprite2D"]
+scale = Vector2(1326, 519)
+texture = ExtResource("1_410yx")
+region_enabled = true
+region_rect = Rect2(4.66, 0, 3827.79, 2127.06)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

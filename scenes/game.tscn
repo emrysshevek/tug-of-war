@@ -1,9 +1,75 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0ipc23rnifqc"]
+[gd_scene load_steps=13 format=3 uid="uid://d0ipc23rnifqc"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_eaink"]
 [ext_resource type="PackedScene" uid="uid://lw2phti7jvw" path="res://components/rope.tscn" id="2_61426"]
+[ext_resource type="Texture2D" uid="uid://bnp5akeee77an" path="res://assets/sprites/ui/Icon_Dark_White.png" id="2_ddm0c"]
+[ext_resource type="Texture2D" uid="uid://qhctdbh2ofhe" path="res://assets/sprites/ui/Stage_background_Light.png" id="2_jkgdv"]
 [ext_resource type="Shader" path="res://shaders/invert.gdshader" id="3_atnxq"]
+[ext_resource type="Texture2D" uid="uid://ihxhjby83log" path="res://assets/sprites/ui/Icon_Light_White.png" id="3_jhx6b"]
 [ext_resource type="Script" path="res://shaders/inversion.gd" id="4_7n8f2"]
+[ext_resource type="Texture2D" uid="uid://cvjrcof0fp2iw" path="res://assets/sprites/ui/Stage_Decor_Light_Mirrored.png" id="5_idv1e"]
+
+[sub_resource type="Animation" id="Animation_y8dsi"]
+resource_name = "move"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/decor/bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.9333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1152, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/decor/top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 29.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 648), Vector2(2304, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_q55mp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/decor/bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/decor/top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60iwt"]
+_data = {
+"RESET": SubResource("Animation_q55mp"),
+"move": SubResource("Animation_y8dsi")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2we31"]
 shader = ExtResource("3_atnxq")
@@ -11,6 +77,12 @@ shader_parameter/amount = 0.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_eaink")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60iwt")
+}
+autoplay = "move"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
@@ -24,13 +96,76 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Background/Control"]
+[node name="TextureRect" type="TextureRect" parent="Background/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_jkgdv")
+expand_mode = 3
+
+[node name="DarkIcon" type="TextureRect" parent="Background/Control"]
+modulate = Color(0.47451, 0.47451, 0.47451, 0.521569)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -286.0
+offset_right = -22.0
+offset_bottom = 245.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_ddm0c")
+expand_mode = 1
+
+[node name="LightIcon" type="TextureRect" parent="Background/Control"]
+modulate = Color(0.478431, 0.478431, 0.478431, 0.505882)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = -359.0
+offset_right = 512.0
+offset_bottom = 245.0
+grow_vertical = 2
+texture = ExtResource("3_jhx6b")
+expand_mode = 1
+
+[node name="decor" type="Node2D" parent="Background"]
+
+[node name="top" type="Node2D" parent="Background/decor"]
+position = Vector2(1152, 648)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/decor/top"]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_idv1e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/decor/top"]
+position = Vector2(1728, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_idv1e")
+
+[node name="bottom" type="Node2D" parent="Background/decor"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/decor/bottom"]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_idv1e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/decor/bottom"]
+position = Vector2(1728, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_idv1e")
 
 [node name="Rope" parent="." instance=ExtResource("2_61426")]
 
@@ -44,5 +179,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_7n8f2")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Inversion/ColorRect"]

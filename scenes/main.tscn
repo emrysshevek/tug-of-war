@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b581je8occbnc"]
+[gd_scene load_steps=7 format=3 uid="uid://b581je8occbnc"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_ypbl2"]
 [ext_resource type="Texture2D" uid="uid://c6qpbmo27yukp" path="res://assets/sprites/ui/Background1.png" id="2_quuyu"]
 [ext_resource type="AudioStream" uid="uid://2827oybgrkx4" path="res://assets/music/Main_Theme_Full.mp3" id="3_144on"]
+[ext_resource type="Texture2D" uid="uid://byxogimb2ign6" path="res://assets/sprites/items/chain.png" id="4_w6c1y"]
+[ext_resource type="Texture2D" uid="uid://clvuwywo3o7i1" path="res://assets/sprites/items/Chain_White.png" id="5_adqf5"]
+[ext_resource type="PackedScene" uid="uid://cxv3yggxq5ekl" path="res://components/heart.tscn" id="6_nas08"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ypbl2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_144on")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
@@ -28,5 +34,19 @@ grow_vertical = 2
 texture = ExtResource("2_quuyu")
 expand_mode = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_144on")
+[node name="Heart" type="Node2D" parent="Background"]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Heart"]
+position = Vector2(-606, 337)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("4_w6c1y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/Heart"]
+position = Vector2(1769, 337)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("5_adqf5")
+
+[node name="Node2D" parent="Background/Heart" instance=ExtResource("6_nas08")]
+position = Vector2(577, 337)
+scale = Vector2(0.62, 0.62)

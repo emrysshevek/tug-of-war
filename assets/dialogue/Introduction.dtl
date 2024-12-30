@@ -39,7 +39,7 @@ label Intro Questions
 - Who are you? | [if {intro_questions.who} == false] [else="hide"]
 	set {intro_questions.who} = true
 	update Light (Light_Happy) [animation="Tada"]
-	Light: My name is Light! 
+	Light: My name is Light!
 	update Light (Light_neutral) [animation="Tada"]
 	Light: Well my real name is [the feeling of sunlight washing over your skin after a week of cloudy weather], but I find humans tend to have a hard time with the pronounciation.
 	update Light (Light_Happy) [animation="Tada"]
@@ -51,7 +51,7 @@ label Intro Questions
 	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: Yup. Shit happens.
 	update Light (Light_Sad) [animation="Tada"]
-	Light: I'm so sorry sweetie, it happens to everyone. 
+	Light: I'm so sorry sweetie, it happens to everyone.
 	update Light (Light_neutral) [animation="Tada"]
 	Light: Well not to us, but you know what I mean.
 if {intro_questions.what} == false or {intro_questions.where} == false or {intro_questions.who} == false:
@@ -59,7 +59,7 @@ if {intro_questions.what} == false or {intro_questions.where} == false or {intro
 update Dark (Dark_Angry) [animation="Tada"]
 Dark: Alright enough chatter, time to get a move on. Step over here kid, this'll only take a second.
 update Light (Light_Sad) [animation="Tada"]
-Light: Dark wait! We can't just extinguish a precious soul like this! 
+Light: Dark wait! We can't just extinguish a precious soul like this!
 Light: She should come stay with me instead--she'd be happy there!
 update Light (Light_Happy) [animation="Tada"]
 Light: Wouldn't you like that, sweetie?
@@ -67,6 +67,7 @@ update Dark (Dark_Angry) [animation="Tada"]
 Dark: We've been over this countless times. You can't just take in every stray you come across! This one needs to move on, just like all the others.
 update Light (Light_Sad) [animation="Tada"]
 Light: I know that, but ... just look at her still brimming with life! A light like hers should be preserved!
+[signal arg_type="dict" arg="{"type":"fight"}"]
 update Dark (Dark_Exasperated) [animation="Tada"]
 Dark: Nu-uh. We're not doing this again. How many of those "lights" do you have in that giant place of yours?
 update Light (Light_Sad) [animation="Tada"]
@@ -75,9 +76,9 @@ update Dark (Dark_Angry) [animation="Tada"]
 Dark: You're always "rescuing" those "poor souls", and then you forget all about them!
 Dark: It's not good for them. Humans require change and growth to thrive. This one is no different!
 update Light (Light_Angry) [animation="Tada"]
-Light: That's not true! 
+Light: That's not true!
 update Light (Light_Sad) [animation="Tada"]
-Light: I just can't stand to see any thing bad happen to them. 
+Light: I just can't stand to see any thing bad happen to them.
 update Light (Light_Happy) [animation="Tada"]
 Light: Come on sweetie, you're going to come live with me now, doesn't that sound nice?
 update Dark (Dark_Angry) [animation="Tada"]

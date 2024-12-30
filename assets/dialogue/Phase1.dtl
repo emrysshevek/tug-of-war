@@ -1,6 +1,6 @@
 join Light (Light_Angry) leftmost [animation="Slide In Right" wait="true"]
-Light: Now look what you've done! She's ruined!
 join Dark (Dark_Neutral) rightmost [animation="Slide In Left" wait="true"]
+Light: Now look what you've done! She's ruined!
 Dark: Calm down, she's not "ruined". But she is in a very delicate state right now, thanks to you.
 update Light (Light_Angry) [animation="Tada"]
 Light: THANKS TO ME??? You're the one trying to eradicate this beautiful flower!

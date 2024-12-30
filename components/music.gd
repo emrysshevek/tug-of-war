@@ -17,6 +17,10 @@ extends Node
 @onready var _track_1: AudioStreamPlayer = $Track1
 @onready var _track_2: AudioStreamPlayer = $Track2
 
+var active_track: AudioStreamPlayer
+var curr_stream: AudioStream
+var position_buffer: float = 0
+
 func _ready() -> void:
 	crossfade_to(main["intro"])
 
@@ -28,13 +32,17 @@ func crossfade_to(stream: AudioStream) -> void:
 	if _track_1.playing and _track_2.playing:
 		return
 
+	curr_stream = stream
+
 	# The `playing` property of the stream players tells us which track is active. 
 	# If it's track two, we fade to track one, and vice-versa.
 	if _track_2.playing:
 		_track_1.stream = stream
 		_track_1.play()
 		_anim_player.play("FadeToTrack1")
+		active_track = _track_1
 	else:
 		_track_2.stream = stream
 		_track_2.play()
 		_anim_player.play("FadeToTrack2")
+		active_track = _track_2

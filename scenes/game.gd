@@ -20,10 +20,12 @@ var prev_game: PackedScene = null
 func _ready() -> void:
 	Globals.phase_score = 0
 
-	if Globals.current_side == -1:
-		$Background/Control/ColorRect.color = Color.WHITE
-	else:
-		$Background/Control/ColorRect.color = Color.BLACK
+	if Globals.current_side == 1:
+		$Background/Control/TextureRect.texture = preload("res://assets/sprites/ui/Stage_background_Dark.png")
+		$Background/decor/top/Sprite2D.texture = preload("res://assets/sprites/ui/Stage_Decor_Dark.png")
+		$Background/decor/top/Sprite2D2.texture = preload("res://assets/sprites/ui/Stage_Decor_Dark.png")
+		$Background/decor/bottom/Sprite2D.texture = preload("res://assets/sprites/ui/Stage_Decor_Dark.png")
+		$Background/decor/bottom/Sprite2D2.texture = preload("res://assets/sprites/ui/Stage_Decor_Dark.png")
 
 	available_games = mini_games.duplicate()
 	if Globals.phase != 0:

@@ -5,6 +5,12 @@ class_name Rope extends Node2D
 
 @onready var starting_pos := position.x
 
+func _ready() -> void:
+	if Globals.current_side == 1:
+		$RopeSprite.texture = preload("res://assets/sprites/items/Chain_White.png")
+		$RopeSprite2.texture = preload("res://assets/sprites/items/Chain_White.png")
+		$RopeSprite3.texture = preload("res://assets/sprites/items/Chain_White.png")
+
 
 func _process(delta: float) -> void:
 	var screen_width = get_viewport().get_visible_rect().size.x
