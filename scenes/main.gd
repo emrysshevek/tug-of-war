@@ -16,17 +16,21 @@ func _ready() -> void:
 	Dialogic.start_timeline("Introduction")
 
 func _on_introduction_ended() -> void:
+	print("Introduction dialogue ended")
 	Dialogic.timeline_ended.disconnect(_on_introduction_ended)
 	Dialogic.timeline_ended.connect(_on_phase_ended)
 	_start_next_phase()
 
 func _on_phase_ended() -> void:
+	print("phase dialogue ended")
 	_start_game()
 
 func _start_next_phase() -> void:
+	print("starting new phase: ", phase_timelines[Globals.phase])
 	Dialogic.start(phase_timelines[Globals.phase])
 
 func _start_game() -> void:
+	print("Starting new battle")
 	if is_instance_valid(game):
 		game.queue_free()
 		
@@ -35,6 +39,7 @@ func _start_game() -> void:
 	add_child(game)
 
 func _on_game_ended() -> void:
+	print("Battle ended")
 	game.queue_free()
 	Globals.phase += 1
 
@@ -47,10 +52,13 @@ func _on_game_ended() -> void:
 
 func _on_resolution_ended() -> void:
 	print("The end :)")
+	get_tree().change_scene_to_file("res://scenes/end.tscn")
 
 func _on_dialogue_signal(arg: Dictionary) -> void:
+	print("received dialogue signal: ", arg)
 	if arg.type == "side":
 		Globals.current_side = arg.value
 		print("new side is ", Globals.current_side)
-	if arg.type == "outcome":
-		pass
+	if arg.type == "ending":
+		Globals.ending = arg.value
+

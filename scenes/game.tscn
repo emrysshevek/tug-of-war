@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_eaink"]
 [ext_resource type="PackedScene" uid="uid://lw2phti7jvw" path="res://components/rope.tscn" id="2_61426"]
-[ext_resource type="Shader" path="res://scenes/invert.gdshader" id="3_atnxq"]
-[ext_resource type="Script" path="res://scenes/inversion.gd" id="4_7n8f2"]
+[ext_resource type="Shader" path="res://shaders/invert.gdshader" id="3_atnxq"]
+[ext_resource type="Script" path="res://shaders/inversion.gd" id="4_7n8f2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2we31"]
 shader = ExtResource("3_atnxq")

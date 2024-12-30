@@ -17,6 +17,8 @@ signal heart_hit()
 
 @export var inversion_amount := 0.0
 
+@export var ending: String
+
 func update_from_winner(winner: int) -> void:
 	Globals.score += winner
 	Globals.phase_score += winner

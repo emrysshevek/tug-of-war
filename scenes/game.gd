@@ -17,6 +17,7 @@ signal game_ended()
 var game_index := -1
 
 func _ready() -> void:
+	Globals.phase_score = 0
 	start_game()
 	
 func start_game() -> void:
@@ -55,6 +56,7 @@ func _on_mini_game_end(winner: String) -> void:
 
 func _check_game_end() -> bool:
 	if abs(Globals.phase_score) >= Globals.MAX_WINS:
+		Globals.phase_score = 0
 		game_ended.emit()
 		return true
 	return false

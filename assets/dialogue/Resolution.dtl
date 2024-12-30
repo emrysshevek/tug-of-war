@@ -1,9 +1,10 @@
-# if Globals.score == -3:
-# #	jump Dark
-# elif Globals.score == 3:
-# #	jump Light
-# #else:
-# #	jump Neutral
+[style]
+if Globals.score == -3:
+	jump Dark
+elif Globals.score == 3:
+	jump Light
+else:
+	jump Neutral
 label Neutral
 Light: What's going on? Why is she still like this?
 Dark: Seems like {player_name}'s heart is still divided.
@@ -64,7 +65,7 @@ Dark: Give it to us straight, the suspense is killing me.
 	Dark: You can stick around as long as you want.
 	Light: And of course you'll be free to leave whenever you want.
 	Light: [font_size=10](I'll still miss you when you go though.)[/font_size]
-	[signal arg_type="dict" arg="{"type":"ending","value":"compromise"}"]
+	[signal arg_type="dict" arg="{"type":"ending","value":"both"}"]
 	[end_timeline]
 label Light
 Light: Don't worry sweetie, you're safe now. I won't let anything hurt you ever again.

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://2va3evttmgg5"]
+
+[ext_resource type="Script" path="res://scenes/end.gd" id="1_un7tr"]
+[ext_resource type="Texture2D" uid="uid://bytngdx14q2ca" path="res://assets/sprites/ui/Ending_Dark.png" id="2_p5lv8"]
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_un7tr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p5lv8")
+expand_mode = 5
