@@ -6,7 +6,7 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "default_style"
+"style": ""
 },
 "default_portrait": "temp",
 "description": "",
@@ -17,7 +17,7 @@
 "portraits": {
 "temp": {
 "export_overrides": {
-"image": "\"res://assets/sprites/dark/dark-temp.png\""
+"image": "\"res://assets/sprites/dark/Dark_Neutral.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

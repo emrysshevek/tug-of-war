@@ -1,5 +1,7 @@
 class_name Game extends Node2D
 
+signal game_ended()
+
 @export var difficulty = 1
 @export var active_game: MiniGame = null
 
@@ -15,12 +17,10 @@ class_name Game extends Node2D
 var game_index := -1
 
 func _ready() -> void:
-	Dialogic.timeline_ended.connect(start_game)
-	Dialogic.signal_event.connect(_on_dialogue_signal)
+	start_game()
+	
 
 func start_game() -> void:
-	if Dialogic.timeline_ended.is_connected(start_game):
-		Dialogic.timeline_ended.disconnect(start_game)
 	if not _check_game_end():
 		_next_game()
 
@@ -51,14 +51,11 @@ func _on_mini_game_end(winner: String) -> void:
 		active_game.queue_free()
 
 	Dialogic.VAR.state.last_winner = winner
-	if Dialogic.current_timeline == null:
-		Interjections.play_interjection()
-	Dialogic.timeline_ended.connect(start_game)
+	start_game()
 
 func _check_game_end() -> bool:
-	if abs(Globals.score) >= Globals.MAX_WINS:
-		active_game.queue_free()
-		add_child(preload("res://scenes/win_screen.tscn").instantiate())
+	if abs(Globals.phase_score) >= Globals.MAX_WINS:
+		game_ended.emit()
 		return true
 	return false
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt10kfe8g848y"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Background/dialogic_background.gd" id="1_dpouf"]
+
+[node name="GameBackground" type="Node"]
+script = ExtResource("1_dpouf")
