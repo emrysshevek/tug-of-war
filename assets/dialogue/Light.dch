@@ -8,16 +8,62 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "New portrait",
+"default_portrait": "Light_neutral",
 "description": "",
 "display_name": "Light",
 "mirror": false,
 "nicknames": ["???"],
 "offset": Vector2(0, 0),
 "portraits": {
-"New portrait": {
+"Light_Angry": {
+"export_overrides": {
+"image": "\"res://assets/sprites/light/Light_Angry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Light_Exasperated": {
+"export_overrides": {
+"image": "\"res://assets/sprites/light/Light_Exasperated.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Light_Happy": {
+"export_overrides": {
+"image": "\"res://assets/sprites/light/Light_Happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Light_Sad": {
+"export_overrides": {
+"image": "\"res://assets/sprites/light/Light_Sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Light_neutral": {
 "export_overrides": {
 "image": "\"res://assets/sprites/light/Light_neutral.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"light-temp": {
+"export_overrides": {
+"image": "\"res://assets/sprites/light/light-temp.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

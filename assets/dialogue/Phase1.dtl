@@ -1,27 +1,38 @@
-join Light leftmost [animation="Slide In Right" wait="true"]
+join Light (Light_Angry) leftmost [animation="Slide In Right" wait="true"]
 Light: Now look what you've done! She's ruined!
-join Dark rightmost [animation="Slide In Left" wait="true"]
+join Dark (Dark_Neutral) rightmost [animation="Slide In Left" wait="true"]
 Dark: Calm down, she's not "ruined". But she is in a very delicate state right now, thanks to you.
+update Light (Light_Angry) [animation="Tada"]
 Light: THANKS TO ME??? You're the one trying to eradicate this beautiful flower!
+update Dark (Dark_Angry) [animation="Tada"]
 Dark: Why do you keep blaming this on me?! I'm the one trying to-
-Dark: You know what, it's not worth it. Let's just deal with problem at hand, I'm sick of this.
-Light: Flower, can you hear me? Are you all right?
+Dark: You know what, it's not worth it. Let's just deal with the problem and move on, I'm sick of this.
+update Light (Light_Sad) [animation="Tada"]
+Light: Petal, can you hear me? Are you all right?
 - What's going on? Please help me!
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: Your soul is splitting in half. Natural consequence of being pulled apart I suppose.
 - I think so. I can still hear you at least.
+	update Dark (Dark_Exasperated) [animation="Tada"]
 	Dark: If you can still hear, then listen up. You're being ripped in half.
 - Does it look like I'm alright??? What did you two do to me?
+	update Dark (Dark_Sad) [animation="Tada"]
 	Dark: Easy, easy, you're gonna be fine....
 	Dark: You are kinda being torn in half though...
-Dark: It's not the end of the world though. All you have to do is choose a side and you'll come back together.
+update Dark (Dark_Neutral) [animation="Tada"]
+Dark: Look, it's not the end of the world. All you have to do is choose a side and you'll come back together.
+update Light (Light_neutral) [animation="Tada"]
 Light: Oh you poor thing.
 Light: Don't worry, just come over here and let me take care of you. I'll put you right back to how you were.
+update Dark (Dark_Neutral) [animation="Tada"]
 Dark: Trust me kid, you don't want to do that. Come with me, it's time to move on.
 - Go with Light
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
-	Dark: Don't you fucking dare you little shithead!
+	update Dark (Dark_Angry) [animation="Tada"]
+	Dark: Ughhh, why can't it ever be simple
 - Go with Dark
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]
-	Light: No! I won't let you go!
+	update Light (Light_Sad) [animation="Tada"]
+	Light: No! I can't bear to let this happen!

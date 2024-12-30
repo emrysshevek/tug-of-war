@@ -1,48 +1,85 @@
 [style]
 join Light left [animation="Slide In Right"]
 join Dark right [animation="Slide In Left"]
-Light: Oh, look, a new soul! This is so exciting, I never get to be around for this!
-Dark: Leave it alone, you know it’s just gonna be dissolved like all the others. This is why I don't let you in here.
+update Light (Light_Happy) [animation="Tada"]
+Light: Oh, look, a new soul! This is so exciting, I never get to see you at work!
+update Dark (Dark_Exasperated) [animation="Tada"]
+Dark: Leave it alone, you know it’s just gonna be dissolved like all the others.
+Dark: This is why I don't let you in here.
+update Light (Light_Happy) [animation="Tada"]
 Light: Aww but she's so CUTE! Just look at her!
-Dark: Yeah, I’m looking and it looks the same as the other 100 billion that have come through here. Now let me deal with it before you get too attached.
+update Dark (Dark_Neutral) [animation="Tada"]
+Dark: Yeah, I’m looking and it looks the same as the other 100 billion that have come through here.
+Dark: Now let me deal with it before you get too attached.
+update Light (Light_Happy) [animation="Tada" mirrored="false"]
 Light: Oh my goodness her eyes are opening!
-[wait time="2.0"]
 Light: Hello there little one! What's your name?
 [text_input text="Enter your name: " var="player_name"]
+update Light (Light_Happy) [animation="Tada"]
 Light: Aww {player_name} that's a beautiful name.
 Light: Don't worry, you're safe here. We're not going to hurt you, right love?
 Dark: ...
+update Light (Light_Angry) [animation="Tada"]
 Light: [speed=10] RIGHT LOVE???
+update Dark (Dark_Exasperated) [animation="Tada"]
 Dark: No of course I'm not gonna hurt it!
 label Intro Questions
 - What's going on? | [if {intro_questions.what} == false] [else="hide"]
 	set {intro_questions.what} = true
 	if randf() < 0.5:
+		update Light (Light_Sad) [animation="Tada"]
 		Light: Aw sweetie, I'm so sorry, something must have happened to you down on Earth. But don't worry, now you're here with us!
 	else:
+		update Dark (Dark_Neutral) [animation="Tada"]
 		Dark: You died, now you're here. Listen, can we hurry this up? I was kinda in the middle of something. [font_size=10] (Or someone...) [/font_size]
 - Where am I? | [if {intro_questions.where} == false] [else="hide"]
 	set {intro_questions.where} = true
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: Soul processing center. People die, their souls come here, I dissolve their essence into raw energy, blah blah blah.
 - Who are you? | [if {intro_questions.who} == false] [else="hide"]
 	set {intro_questions.who} = true
-	Light: My name is Light! Well my real name is [the feeling of sunlight washing over your skin after a week of cloudy weather], but I find humans tend to have a hard time with the pronounciation. And this here is Dark!
+	update Light (Light_Happy) [animation="Tada"]
+	Light: My name is Light! 
+	update Light (Light_neutral) [animation="Tada"]
+	Light: Well my real name is [the feeling of sunlight washing over your skin after a week of cloudy weather], but I find humans tend to have a hard time with the pronounciation.
+	update Light (Light_Happy) [animation="Tada"]
+	Light: And this here is Dark!
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: *grunt*
 - Am I dead?!?!? | [if {intro_questions.what} == true and {intro_questions.dead} == false] [else="hide"]
 	set {intro_questions.dead} = true
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: Yup. Shit happens.
-	Light: I'm so sorry sweetie, it happens to everyone. Well not to us, but you know what I mean.
+	update Light (Light_Sad) [animation="Tada"]
+	Light: I'm so sorry sweetie, it happens to everyone. 
+	update Light (Light_neutral) [animation="Tada"]
+	Light: Well not to us, but you know what I mean.
 if {intro_questions.what} == false or {intro_questions.where} == false or {intro_questions.who} == false:
 	jump Intro Questions
+update Dark (Dark_Angry) [animation="Tada"]
 Dark: Alright enough chatter, time to get a move on. Step over here kid, this'll only take a second.
-Light: Dark wait! We can't just extinguish a precious soul like this! She should come stay with me instead--she'd be happy there!
+update Light (Light_Sad) [animation="Tada"]
+Light: Dark wait! We can't just extinguish a precious soul like this! 
+Light: She should come stay with me instead--she'd be happy there!
+update Light (Light_Happy) [animation="Tada"]
 Light: Wouldn't you like that, sweetie?
-Dark: We've been over this countless times. You can't just take in every stray you come across! Human souls aren't meant to stagnate like that. This one needs to move on, just like everyone else.
+update Dark (Dark_Angry) [animation="Tada"]
+Dark: We've been over this countless times. You can't just take in every stray you come across! This one needs to move on, just like all the others.
+update Light (Light_Sad) [animation="Tada"]
 Light: I know that, but ... just look at her still brimming with life! A light like hers should be preserved!
-Dark: No. We're not doing this again. How many of those "lights" do you have cooped up in your cage with you already? Are they even happy like that? Do you even know?
+update Dark (Dark_Exasperated) [animation="Tada"]
+Dark: Nu-uh. We're not doing this again. How many of those "lights" do you have in that giant place of yours?
+update Light (Light_Sad) [animation="Tada"]
 Light: I-
-Dark: No! You've never asked them! You rescue those "poor souls" and then forget all about them!
-Dark: It's not right, it's not healthy. Humans require change and growth to thrive. This one is no different!
-Light: You're wrong! I refuse to let you darken this bright soul. Come on sweetie, you're going to come live with me now, doesn't that sound nice?
-Dark: ENOUGH. I've let you meddle with the cycle too many times already. I won't let you do it again!
+update Dark (Dark_Angry) [animation="Tada"]
+Dark: You're always "rescuing" those "poor souls", and then you forget all about them!
+Dark: It's not good for them. Humans require change and growth to thrive. This one is no different!
+update Light (Light_Angry) [animation="Tada"]
+Light: That's not true! 
+update Light (Light_Sad) [animation="Tada"]
+Light: I just can't stand to see any thing bad happen to them. 
+update Light (Light_Happy) [animation="Tada"]
+Light: Come on sweetie, you're going to come live with me now, doesn't that sound nice?
+update Dark (Dark_Angry) [animation="Tada"]
+Dark: As if! This one's coming with me!
 [end_timeline]

@@ -1,77 +1,110 @@
 [style]
-if Globals.score == -3:
-	jump Dark
-elif Globals.score == 3:
-	jump Light
-else:
-	jump Neutral
+join Dark right [animation="Slide In Left"]
+join Light left [animation="Slide In Right"]
+
 label Neutral
+update Light (Light_Sad) [animation="Tada"]
 Light: What's going on? Why is she still like this?
-Dark: Seems like {player_name}'s heart is still divided.
+update Dark (Dark_Neutral) [animation="Tada"]
+Dark: Seems like {player_name}'s heart is still undecided.
 Dark: Just can't make up your mind can ya kid?
 if {state.side} == "light":
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: I've already said my piece. I clearly can't make up your mind for you and at this point I'm sick of trying.
 	Dark: It's up to you now.
 else:
+	update Light (Light_neutral) [animation="Tada"]
 	Light: I know I can't change your mind. All I can do now is hope that you'll make the right decision.
+update Dark (Dark_Neutral) [animation="Tada"]
 Dark: Give it to us straight, the suspense is killing me.
 - Light
 	jump Light
 - Dark
 	jump Dark
 - No! | [if {dialog.light2} == {dialog.dark3}] [else="disable"]
+	update Light (Light_Sad) [animation="Tada"]
 	Light: No?
 	Light: {player_name}, what do you mean no?
 	- There has to be another way!
+	update Dark (Dark_Exasperated) [animation="Tada"]
 	Dark: Look  {player_name}, I get that you have cold feet, but there really is no other way.
 	- That's bullshit and you know it.
+	update Dark (Dark_Angry) [animation="Tada"]
 	Dark: Excuse me? This is how it works! This is how it's always worked!
+	update Light (Light_Exasperated) [animation="Tada"]
 	Light: {player_name}, you have to listen-
 	- No, you listen to me.
+	[clear time="1.0" portraits="false" music="false" background="false" positions="false" style="false"]
 	<Empty Text Event>
+	update Light (Light_Sad) [animation="Tada"]
+	update Dark (Dark_Sad) [animation="Tada"]
 	- You both talk about how much you value me
+	update Light (Light_Happy) [animation="Tada"]
 	<Empty Text Event>
 	- And how much potential for growth I have
+	update Dark (Dark_Neutral) [animation="Tada"]
 	<Empty Text Event>
 	- But neither of you have respected my agency
 	<Empty Text Event>
+	update Light (Light_Sad) [animation="Tada"]
 	- Maybe I really want to become a pile of stardust!
+	update Dark (Dark_Happy) [animation="Tada"]
 	<Empty Text Event>
 	- Maybe I always dreamt of living forever!
 	<Empty Text Event>
-	- You wouldn't know because neither of you have even bothered to actually understand me!
+	update Light (Light_Happy) [animation="Tada"]
+	- But you wouldn't know because neither of you have even bothered to actually understand me!
+	update Light (Light_Sad) [animation="Tada"]
+	update Dark (Dark_Sad) [animation="Tada"]
 	Dark: C'mon {player_name}-
 	- Hold on, I'm not done yet.
+	[clear time="1.0" portraits="false" music="false" background="false" positions="false" style="false"]
 	<Empty Text Event>
 	- In a way both of you are right.
+	update Light (Light_neutral) [animation="Tada"]
+	update Dark (Dark_Neutral) [animation="Tada"]
 	<Empty Text Event>
 	- Everything in the universe has inherent value simply for existing.
 	<Empty Text Event>
+	update Light (Light_Happy) [animation="Tada"]
 	- And everything has value for its potential to become something new.
+	update Dark (Dark_Happy) [animation="Tada"]
 	<Empty Text Event>
 	- But in another way, you're both wrong.
 	<Empty Text Event>
+	update Dark (Dark_Neutral) [animation="Tada"]
+	update Light (Light_neutral) [animation="Tada"]
 	- Value like that can't be determined from the outside.
 	<Empty Text Event>
 	- Value can only be determined by the thing itself.
 	<Empty Text Event>
 	- Otherwise it's meaningless.
+	update Light (Light_neutral) [animation="Tada"]
 	Light: ...
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: ...
+	update Light (Light_Sad) [animation="Tada"]
 	Light: Oh {player_name}, I'm so sorry.
+	update Light (Light_neutral) [animation="Tada"]
 	Light: You're absolutely right.
+	update Dark (Dark_Angry) [animation="Tada"]
 	Dark: I'm not sure I agree with everything you said...
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: But I see your point.
+	update Dark (Dark_Happy) [animation="Tada"]
 	Dark: You can stick around as long as you want.
-	Light: And of course you'll be free to leave whenever you want.
+	update Light (Light_Happy) [animation="Tada"]
+	Light: And of course you'll be free to leave whenever you want!
 	Light: [font_size=10](I'll still miss you when you go though.)[/font_size]
 	[signal arg_type="dict" arg="{"type":"ending","value":"both"}"]
 	[end_timeline]
 label Light
+update Light (Light_Happy) [animation="Tada"]
 Light: Don't worry sweetie, you're safe now. I won't let anything hurt you ever again.
 [signal arg_type="dict" arg="{"type":"ending","value":"light"}"]
 [end_timeline]
 label Dark
+update Dark (Dark_Happy) [animation="Tada"]
 Dark: Knock 'em dead kid. You're gonna kill it as a galaxy.
 [signal arg_type="dict" arg="{"type":"ending","value":"dark"}"]
 [end_timeline]

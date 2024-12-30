@@ -1,62 +1,87 @@
 [style]
-join Light leftmost [animation="Slide In Right"]
-join Dark rightmost [animation="Slide In Left"]
 if {state.side} == "light":
+	join Dark rightmost [animation="Slide In Left"]
 	jump Dark
 else:
+	join Light leftmost [animation="Slide In Right"]
 	jump Light
 label Light
 set {dialog.light3} = true
 if Globals.last_winner  ==  -1:
+	update Light (Light_Sad) [animation="Tada"]
 	Light: Thank goodness {player_name}, there's still time.
 # Light's argument: You have value as you are. Dark only sees you for your potential
 set 
+update Light (Light_Sad) [animation="Tada"]
 Light: Please {player_name}, you have to listen to me.
 Light: No matter how you might feel about yourself, you are precious.
 Light: Not for what you might do or who you might become, but for who you are right now.
+update Light (Light_neutral) [animation="Tada"]
 Light: I only wish you could see yourself the way I do.
 Light: A beautiful, tender soul, unique among all beings in the universe.
+update Light (Light_Happy) [animation="Tada"]
 Light: Your light is practically outshining my own!
+update Light (Light_Sad) [animation="Tada"]
 Light: It breaks my heart to think about a presence as strong as your own suddenly vanishing.
 Light: The universe would be a colder place without you in it.
 [wait time="2.0"]
+update Light (Light_neutral) [animation="Tada"]
 Light: Please, {player_name}.
 - You're right, I don't want to lose everything.
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
+	update Light (Light_Happy) [animation="Tada"]
 	Light: Oh thank goddesses! You don't know how scared I was.
-	Dark: I can't fucking believe this. That fluffy piece of shit is all it took to convince you? A little flattery and you roll over like a dog?
+	join Dark rightmost [animation="Slide In Left"]
+	Dark: I can't fucking believe this. That load of crap is all it took to convince you? A little flattery and you roll over like a dog?
+	update Dark (Dark_Angry) [animation="Tada"]
 	Dark: NO.
 	Dark: If you wanna give up your agency in exchange for a warm cage that's on you, but I have a job to do!
 - I'm sorry but I have to do this
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]
+	join Dark rightmost [animation="Slide In Left"]
+	update Dark (Dark_Happy) [animation="Tada"]
 	Dark: Finally! You're making the right choice {player_name}. I promise I'll be with you every step of the way.
+	update Light (Light_Angry) [animation="Tada"]
 	Light: NOOOOOOO!!! I refuse to let you go!
 [end_timeline]
 label Dark
 set {dialog.dark3} = true
 # Dark's argument: “In order to change, the self must die”, the only way we can grow is by stepping out of our comfort zones and into the unknown
 if Globals.last_winner  ==  1:
+	update Dark (Dark_Exasperated) [animation="Tada"]
 	Dark: You're certainly not making it easy on me.
+update Dark (Dark_Angry) [animation="Tada"]
 Dark: I'm serious {player_name}, this is your last chance. You're not gonna get another one.
 Dark: I meant it when I said that some things are worse than death.
+update Dark (Dark_Neutral) [animation="Tada"]
 Dark: When something dies, its body is broken down and becomes the fuel that sparks the birth of new life.
 Dark: If nothing ever died, nothing new could ever grow.
+update Dark (Dark_Sad) [animation="Tada"]
 Dark: That to me is true "death". A stagnation that chokes out progress, preventing us from ever changing or improving.
+update Dark (Dark_Neutral) [animation="Tada"]
 Dark: I admit that it can be scary to take that step out into the unknown but there's just no other way to live.
 Dark: In order to change, the self must die.
+update Dark (Dark_Neutral) [animation="Tada"]
 Dark: So what'll it be {player_name}? Eternal death...or rebirth?
 - I'm sorry, I just can't.
 	set {state.side} = "light"
 	[signal arg_type="dict" arg="{"type":"side","value":-1}"]
+	join Light leftmost [animation="Slide In Right"]
+	update Light (Light_Angry) [animation="Tada"]
 	Light: That's right, you can't just call death "life" and life "death". It doesn't work like that!
-	Light: I'm so glad you were able to see through the lies.
+	update Light (Light_Happy) [animation="Tada"]
+	Light: I'm so glad you were able to see through it, {player_name}.
+	update Dark (Dark_Angry) [animation="Tada"]
 	Dark: You cowardly piece of shit! I've had it up to here with you!
 	Dark: You're coming with me whether you like it or not!
 - If you're there with me, I think I can do it.
 	set {state.side} = "dark"
 	[signal arg_type="dict" arg="{"type":"side","value":1}"]
+	update Dark (Dark_Neutral) [animation="Tada"]
 	Dark: I'll be next to you every step of the way, I promise.
+	join Light leftmost [animation="Slide In Right"]
+	update Light (Light_Angry) [animation="Tada"]
 	Light: NOOOO!! I won't let you do this! I refuse to let you go!
 [end_timeline]
